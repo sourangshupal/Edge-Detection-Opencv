@@ -46,15 +46,16 @@ cnts = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 
 ## What are Contours ?
 ## Contours can be explained simply as a curve joining all the continuous
-## points (along the boundary), having same color or intensity. 
+## points (along the boundary), having same color or intensity.
 ## The contours are a useful tool for shape analysis and object detection 
 ## and recognition.
 
 # Handling due to different version of OpenCV
-cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+#cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+cnts = cnts[0]
 
 # Taking only the top 5 contours by Area
-cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
+cnts = sorted(cnts,key= cv2.contourArea, reverse = True)[:5]
 
 ### Heuristic & Assumption
 
